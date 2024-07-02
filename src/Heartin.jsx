@@ -1,0 +1,44 @@
+import { useState } from "react";
+
+function HeartLike({count,setCount}) //inside {} tell what you are going to share  - that is props
+{
+    // let like = true; //to check whether it is liked or not
+    const[like,setLike] = useState(false);
+    function handleLike()
+    {
+        //false -> true  :like   +1
+        //true  -> false :unlike -1
+        if(like)
+            {
+                setCount(count - 1);
+            }
+            else
+            {
+                setCount(count + 1);
+            }
+        setLike(!like); //similar to !true in programs
+    }
+    return(
+        <div onClick={handleLike} style={{color:'red'}}>
+        {like ? <i class="fa-solid fa-heart"></i>:  <i class="fa-regular fa-heart"></i>}    
+        </div>
+    );
+}
+export default function Heartin()
+{
+    const[count,setCount] = useState(0);
+
+    return(
+        <>
+        <p>the like count is{count}</p>
+        
+        <HeartLike count={count} setCount={setCount}></HeartLike>
+        <HeartLike count={count} setCount={setCount}></HeartLike>
+        <HeartLike count={count} setCount={setCount}></HeartLike>
+        <HeartLike count={count} setCount={setCount}></HeartLike>
+        <HeartLike count={count} setCount={setCount}></HeartLike>
+        <HeartLike count={count} setCount={setCount}></HeartLike>
+       </>
+    );
+    
+}
