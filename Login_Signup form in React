@@ -1,0 +1,138 @@
+Login_Signup.jsx
+-----------------
+
+import React, { useState } from 'react'
+import './Login_signup.css'
+import email_icon from '../images/email.png'
+import password_icon from '../images/password.png'
+import person_icon from '../images/person.png'
+
+
+const Login_signup = () => {
+    const [action,setAction] = useState("Sign Up");
+  return (
+    
+    <div className='container'>
+        <div className='header'>
+            {action}
+        </div>
+
+        <div className='inputs'>
+            {action == "Login"?<div></div>:<div className='input'>
+                <img src={person_icon} alt="" />
+                <input type="text" className='form-control' placeholder='enter your name'/>
+                </div>}
+            
+        </div>
+
+        <div className='input'>
+            <img src={email_icon} alt="" />
+            <input type="email" className='form-control' placeholder='enter your email'/>
+        </div>
+
+        <div className='input'>
+            <img src={password_icon} alt="" />
+            <input type="password" className='form-control' placeholder='enter password'/>
+        </div>
+
+        {action == "Sign Up" ? <div></div> :
+        <div className="forget-password">Forget password? <span>Click here!</span>
+        </div>}
+
+
+        <div className='submit-container'>
+            <div  className={action == "Login" ? "submit gray" :"submit"} onClick={() => {setAction("Sign Up")}}>Sign Up</div>
+            <div className={action == "Sign Up" ? "submit gray" :"submit"} onClick={() => {setAction("Login")}} >Login</div>
+        </div>
+
+        
+   
+    
+
+    
+    </div>
+  )
+}
+
+----------------------------------------------------------------------------------------------------------------------------------------------
+Login_Signup.css
+-----------------
+body{
+    background-color: #588157;
+    text-align: center;
+    
+}
+.container{
+    background-color: #a3b18a;
+    margin-top: 7%;
+    padding: 2%;
+
+}
+.header{
+    color: #344e41;
+    font-size:x-large;
+    font-weight:bold;
+}
+.inputs{
+    background-color: #dad7cd;
+    /* margin: auto;
+    padding: 1%;   
+    width: 40%;
+    margin-top: 1%; */
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    
+}
+.input,.inputs{
+    display: flex;
+    /* align-items: center; */
+    background-color: #dad7cd;
+    margin: 1%;
+    border-radius: 6px;
+}
+.input input{
+    margin: 2%;
+    border: none;
+    width: 50%;
+    background: transparent;
+    outline: none;
+    background-color:#dad7cd;
+}
+
+.input img{
+    margin: 0px 40px;
+    height: 30px;
+   margin-top: 2.5%;
+}
+.submit-container{
+    display: flex;
+    /* margin: 2%; */
+    margin: auto;
+    padding-left: 35%;
+    width: 100%;
+    align-items: center;
+    text-align: center;
+    cursor: pointer;
+}
+.submit {
+    display: flex;
+    width: 20%;
+    background-color: #344e41;
+    border-radius: 50px;
+    margin: 2%;
+    padding: 2%;
+    color: #dad7cd;
+    text-align: center;
+    align-items: center;
+
+}
+.forget-password{
+    margin: 1%;
+    color: #344e41;
+    cursor: pointer;
+}
+.gray{
+    background-color: #dad7cd;
+    color: black;
+}
